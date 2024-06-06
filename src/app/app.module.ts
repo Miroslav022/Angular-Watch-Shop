@@ -6,9 +6,16 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { AboutUsModule } from './about-us/about-us.module';
 import { ContactComponent } from './contact/components/contact/contact.component';
+import { ContactModule } from './contact/contact.module';
 @NgModule({
-  declarations: [AppComponent, ContactComponent],
-  imports: [BrowserModule, AppRoutingModule, LayoutModule, AboutUsModule],
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    LayoutModule,
+    AboutUsModule,
+    ContactModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
