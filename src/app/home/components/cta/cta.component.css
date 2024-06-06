@@ -1,0 +1,155 @@
+.video-area {
+    background-image: url(../../../../assets/img/gallery/sectin_bg1.png);
+    width: 100%;
+    height: 700px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .video-area {
+        height: 400px;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .video-area {
+        height: 400px;
+    }
+}
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    .video-area {
+        height: 320px;
+    }
+}
+@media (max-width: 575px) {
+    .video-area {
+        height: 400px;
+    }
+}
+.video-area::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    content: "";
+    background-color: rgba(2, 5, 12, 0.5);
+    opacity: 0;
+    z-index: 0;
+    -webkit-transition: all 0.4s ease-out 0s;
+    -moz-transition: all 0.4s ease-out 0s;
+    -ms-transition: all 0.4s ease-out 0s;
+    -o-transition: all 0.4s ease-out 0s;
+    transition: all 0.4s ease-out 0s;
+}
+.video-area .play-btn {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    right: 0;
+    text-align: center;
+}
+.video-area .play-btn a {
+    width: 85px;
+    height: 85px;
+    display: inline-block;
+    line-height: 85px;
+    text-align: center;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 24px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding-left: 5px;
+    padding-top: 1px;
+    border: 1px solid #fff;
+    transform: scale(1);
+}
+.video-area .play-btn a:hover {
+    background: #fff;
+    color: #ff2020;
+    border: 1px solid transparent;
+}
+.video-area:hover::before {
+    opacity: 1;
+}
+.video-area:hover .play-btn a {
+    transform: scale(1.1);
+}
+.thumb-content-box {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    z-index: 2;
+    width: 34%;
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .thumb-content-box {
+        width: 28%;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .thumb-content-box {
+        width: 32%;
+    }
+}
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    .thumb-content-box {
+        width: 40%;
+    }
+}
+@media (max-width: 575px) {
+    .thumb-content-box {
+        width: 60%;
+    }
+}
+.thumb-content-box .thumb-content {
+    position: absolute;
+    bottom: 0;
+    align-items: end;
+    background-image: url(../../../../assets/img/gallery/vidoe_more.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 143px 60px 80px;
+    width: 100%;
+    line-height: 1;
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .thumb-content-box .thumb-content {
+        padding: 21px 56px 25px 9px;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .thumb-content-box .thumb-content {
+        padding: 21px 56px 25px 9px;
+    }
+}
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    .thumb-content-box .thumb-content {
+        padding: 11px 49px 14px 9px;
+    }
+}
+@media (max-width: 575px) {
+    .thumb-content-box .thumb-content {
+        padding: 11px 49px 14px 9px;
+    }
+}
+.thumb-content-box .thumb-content h3 {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0;
+    text-transform: uppercase;
+}
+.thumb-content-box .thumb-content a {
+    color: #fff;
+    display: block;
+    position: relative;
+    right: -34px;
+    font-size: 30px;
+}

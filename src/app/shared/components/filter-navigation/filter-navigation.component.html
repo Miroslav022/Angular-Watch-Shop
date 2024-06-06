@@ -1,0 +1,20 @@
+<div class="row product-btn justify-content-between mb-40">
+  <div class="properties__button">
+    <!--Nav Button  -->
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <app-filter-button
+          [ngClass]="'active'"
+          filterOption="Newest Arrivals"
+        ></app-filter-button>
+        <app-filter-button filterOption="Price high to low"></app-filter-button>
+        <app-filter-button filterOption="Most popular"></app-filter-button>
+      </div>
+    </nav>
+    <!--End Nav Button  -->
+  </div>
+  <!-- Grid and List view -->
+  <div class="grid-list-view"></div>
+  <!-- Select items -->
+  <app-select [perPage]="perPage"></app-select>
+</div>

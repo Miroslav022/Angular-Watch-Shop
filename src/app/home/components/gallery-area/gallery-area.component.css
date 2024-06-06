@@ -1,0 +1,45 @@
+.gallery-area .single-gallery {
+    position: relative;
+    overflow: hidden;
+}
+.gallery-area .single-gallery::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    content: "";
+    background-color: rgba(1, 10, 28, 0.3);
+    opacity: 0;
+    z-index: 1;
+    -webkit-transition: all 0.4s ease-out 0s;
+    -moz-transition: all 0.4s ease-out 0s;
+    -ms-transition: all 0.4s ease-out 0s;
+    -o-transition: all 0.4s ease-out 0s;
+    transition: all 0.4s ease-out 0s;
+}
+.gallery-area .single-gallery:hover::before {
+    opacity: 1;
+    visibility: visible;
+}
+.gallery-area .single-gallery .gallery-img {
+    transform: scale(1.06);
+    -webkit-transition: all 0.4s ease-out 0s;
+    -moz-transition: all 0.4s ease-out 0s;
+    -ms-transition: all 0.4s ease-out 0s;
+    -o-transition: all 0.4s ease-out 0s;
+    transition: all 0.4s ease-out 0s;
+}
+.gallery-area .single-gallery .big-img {
+    position: relative;
+    height: 690px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.gallery-area .single-gallery .small-img {
+    position: relative;
+    height: 330px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

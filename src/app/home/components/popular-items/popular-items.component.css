@@ -65,3 +65,65 @@
   font-weight: 500;
   display: block;
 }
+.popular-items .nav-tabs {
+  margin-bottom: 15px;
+  padding-bottom: 0px;
+  position: relative;
+  border: 0;
+  display: flex;
+  justify-content: center;
+}
+.popular-items .nav-tabs .nav-link {
+  border: 0;
+  border-bottom: 2px solid transparent;
+}
+@media (max-width: 575px) {
+  .popular-items .nav-tabs .nav-link {
+    padding: 0.5rem 0.6rem;
+  }
+}
+.popular-items .nav-tabs .nav-item {
+  padding-bottom: 10px;
+  display: block;
+  color: #1b1b1b;
+  text-transform: capitalize;
+  font-size: 16px;
+}
+.popular-items .nav-tabs .nav-item.show .nav-link,
+.popular-items .nav-tabs .nav-link.active {
+  background: none;
+  border-bottom: 2px solid #ff5757;
+  z-index: 5;
+  position: relative;
+}
+.popular-items .nice-select {
+  background-color: #f2f2f2;
+  border-radius: 30px;
+  border: none;
+  color: #333333;
+  height: 31px;
+  line-height: 31px;
+  padding-right: 47px;
+}
+.popular-items .nice-select::after {
+  border-bottom: 1px solid #333333;
+  border-right: 1px solid #333333;
+  height: 7px;
+  width: 7px;
+  margin-top: -4px;
+  right: 17px;
+}
+.popular-items .nice-select .list {
+  background-color: #fff;
+  border-radius: 0;
+  width: 100%;
+}
+.single-popular-items:hover .popular-img .img-cap {
+  bottom: 0;
+  opacity: 1;
+  visibility: visible;
+}
+.single-popular-items:hover .popular-img .favorit-items {
+  opacity: 1;
+  visibility: visible;
+}

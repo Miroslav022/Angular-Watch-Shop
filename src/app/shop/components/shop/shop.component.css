@@ -1,0 +1,84 @@
+.popular-items .nav-tabs {
+  margin-bottom: 15px;
+  padding-bottom: 0px;
+  position: relative;
+  border: 0;
+  display: flex;
+  justify-content: center;
+}
+
+/*Tab content*/
+.product_description_area .tab-content {
+  padding-top: 30px;
+}
+.product_description_area .tab-content .total_rate .box_total {
+  background: #f7f7f7;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: 1px solid #ddd;
+}
+.product_description_area .tab-content .total_rate .box_total h4 {
+  color: #2577fd;
+  font-size: 48px;
+  font-weight: bold;
+}
+.product_description_area .tab-content .total_rate .box_total h5 {
+  color: #415094;
+  margin-bottom: 0px;
+  font-size: 24px;
+}
+.product_description_area .tab-content .total_rate .box_total h6 {
+  color: #415094;
+  margin-bottom: 0px;
+  font-size: 14px;
+  color: #828bb2;
+  font-weight: normal;
+}
+.product_description_area .tab-content .total_rate .rating_list {
+  margin-bottom: 30px;
+}
+.product_description_area .tab-content .total_rate .rating_list h3 {
+  font-size: 18px;
+  color: #415094;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.product_description_area .tab-content .total_rate .rating_list .list li a {
+  font-size: 14px;
+  color: #828bb2;
+}
+.product_description_area .tab-content .total_rate .rating_list .list li a i {
+  color: #fbd600;
+}
+.product_description_area
+  .tab-content
+  .total_rate
+  .rating_list
+  .list
+  li:nth-child
+  a
+  i:last-child {
+  color: #eeeeee;
+}
+.product_description_area .tab-content .table {
+  margin-bottom: 0px;
+}
+.product_description_area .tab-content .table tbody tr td {
+  padding-left: 65px;
+  padding-right: 65px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.product_description_area .tab-content .table tbody tr td h5 {
+  font-size: 14px;
+  font-family: "Playfair Display", serif;
+  font-weight: normal;
+  color: #828bb2;
+  margin-bottom: 0px;
+  white-space: nowrap;
+}
+.product_description_area .tab-content .table tbody tr:first-child td {
+  border-top: 0px;
+}

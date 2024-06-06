@@ -1,0 +1,25 @@
+.about-details-cap h4 {
+  font-size: 30px;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #000a2d;
+  display: inline-block;
+  position: relative;
+  padding-left: 68px;
+}
+.about-details-cap h4::before {
+  position: absolute;
+  content: "";
+  width: 54px;
+  height: 2px;
+  background: #eb566c;
+  top: 0;
+  left: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.about-details-cap p {
+  color: #464d65;
+  font-size: 14px;
+}
