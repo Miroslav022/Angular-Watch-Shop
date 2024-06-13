@@ -1,0 +1,25 @@
+/* Custom Styles for the Product Page */
+.product-name {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.product-brand,
+.product-category,
+.product-price {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.product-characteristics,
+.product-description {
+  margin-top: 0.5rem;
+}
+
+.product-characteristics li {
+  margin-bottom: 0.5rem;
+}
+
+.productImg {
+  width: 100%;
+}

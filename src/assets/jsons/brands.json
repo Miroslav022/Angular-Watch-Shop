@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "brand": "Rolex"
+  },
+  {
+    "id": 2,
+    "brand": "Omega"
+  },
+  {
+    "id": 3,
+    "brand": "Tag Heuer"
+  },
+  {
+    "id": 4,
+    "brand": "Casio"
+  },
+  {
+    "id": 5,
+    "brand": "Seiko"
+  },
+  {
+    "id": 6,
+    "brand": "Apple"
+  },
+  {
+    "id": 7,
+    "brand": "Fossil"
+  }
+]

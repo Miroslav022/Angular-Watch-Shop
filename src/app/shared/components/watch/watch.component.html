@@ -1,19 +1,31 @@
 <div>
   <div class="single-popular-items mb-50 text-center">
     <div class="popular-img">
-      <img src="assets/img/gallery/popular1.png" alt="" />
+      <img src="{{ Product.Image.src }}" [alt]="Product.Image.alt" />
       <div class="img-cap">
-        <span>Add to cart</span>
+        <span data-id="{{ Product.id }}" (click)="addToCart($event)"
+          >Add to cart</span
+        >
       </div>
-      <div class="favorit-items">
+      <!-- <div class="favorit-items">
         <span class="flaticon-heart"></span>
-      </div>
+      </div> -->
     </div>
     <div class="popular-caption">
       <h3>
-        <a href="product_details.html">{{ Name }}</a>
+        <a>{{ Product.Name }}</a>
       </h3>
-      <span>$ {{ Price }}</span>
+      <div class="row justify-content-center">
+        @if(Product.Price.oldPrice) {
+        <span class="mr-2"
+          ><del>$ {{ Product.Price.oldPrice }}</del></span
+        >
+        }
+        <span>$ {{ Product.Price.newPrice }}</span>
+      </div>
+      <span (click)="navigateToProduct(Product.id)" class="seeDetailsBtn"
+        >See details</span
+      >
     </div>
   </div>
 </div>

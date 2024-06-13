@@ -1,0 +1,129 @@
+.checkout_area p {
+  font-size: 14px;
+}
+.checkout_area .form-control {
+  font-size: 14px;
+  height: 40px;
+}
+.checkout_area .form-control {
+  border: 1px solid #eee;
+}
+.checkout_area .form-control :focus {
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  outline: 0;
+  box-shadow: none;
+}
+.checkout_area .form-control .form-control input {
+  height: 50px;
+}
+.post_code {
+  display: block;
+  width: 100%;
+  background: #f4f4f4;
+  border: 1px solid #f4f4f4;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 8px 15px;
+}
+.check_title h2 {
+  font-size: 14px;
+  font-weight: normal;
+  font-family: "Playfair Display", serif;
+  background: #f7f7f7;
+  line-height: 40px;
+  padding-left: 30px;
+  margin-bottom: 0px;
+}
+@media (max-width: 991px) {
+  .check_title h2 {
+    line-height: 17px;
+    padding: 12px;
+  }
+}
+.check_title h2 a {
+  color: #2577fd;
+  text-decoration: underline;
+}
+
+.p_star {
+  display: inline-block;
+  position: relative;
+}
+.p_star input {
+  background: #fff;
+}
+.p_star input:focus + .placeholder {
+  display: none;
+}
+.p_star .placeholder {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 30px;
+  z-index: 1;
+}
+.p_star .placeholder::before {
+  content: attr(data-placeholder);
+  color: #777;
+}
+.p_star .placeholder::after {
+  content: " *";
+  color: tomato;
+}
+
+.billing_details h3 {
+  font-size: 18px;
+  color: #415094;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+.billing_details .contact_form .form-group {
+  margin-bottom: 20px;
+}
+.billing_details .contact_form .form-group input {
+  border-radius: 3px;
+  color: #828bb2;
+}
+.billing_details .contact_form .form-group input.placeholder {
+  color: #828bb2;
+}
+.billing_details .contact_form .form-group input:-moz-placeholder {
+  color: #828bb2;
+}
+.billing_details .contact_form .form-group input::-moz-placeholder {
+  color: #828bb2;
+}
+.billing_details .contact_form .form-group input::-webkit-input-placeholder {
+  color: #828bb2;
+}
+.billing_details .contact_form .form-group textarea {
+  height: 150px;
+  border-radius: 3px;
+  margin-top: 15px;
+}
+.billing_details .contact_form .form-group .country_select {
+  width: 100%;
+}
+.billing_details .contact_form .form-group .country_select span {
+  color: #828bb2;
+}
+.billing_details .contact_form .form-group .country_select .list {
+  width: 100%;
+  border-radius: 0px;
+}
+.billing_details .contact_form .form-group .country_select .list li {
+  font-size: 14px;
+  font-family: "Playfair Display", serif;
+  font-weight: normal;
+}
+.billing_details .contact_form .form-group .creat_account #f-option2 {
+  margin-right: 5px;
+}
+.billing_details .contact_form .form-group .creat_account #f-option3 {
+  margin-right: 5px;
+}
+.billing_details .contact_form .form-group .creat_account a {
+  color: #2577fd;
+}

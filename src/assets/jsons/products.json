@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "Name": "Rolex Submariner",
+    "Price": {
+      "oldPrice": 8000,
+      "newPrice": 7500
+    },
+    "Date": "2024-01-15",
+    "IdCategory": 1,
+    "Popularity": 5,
+    "Image": {
+      "src": "assets/img/gallery/popular4.png",
+      "alt": "Rolex Submariner"
+    },
+    "IdBrand": 1,
+    "Characteristics": [
+      "Water-resistant",
+      "Automatic movement",
+      "Ceramic bezel"
+    ],
+    "description": "The Rolex Submariner is an iconic diving watch known for its durability and style. With a ceramic bezel and automatic movement, it's a favorite among watch enthusiasts. The water-resistant feature makes it perfect for underwater adventures, while its sleek design ensures it stands out on any wrist."
+  },
+  {
+    "id": 2,
+    "Name": "Omega Speedmaster",
+    "Price": {
+      "oldPrice": 6500,
+      "newPrice": 6200
+    },
+    "Date": "2024-02-10",
+    "IdCategory": 1,
+    "Popularity": 4,
+    "Image": {
+      "src": "assets/img/gallery/popular2.png",
+      "alt": "Omega Speedmaster"
+    },
+    "IdBrand": 2,
+    "Characteristics": ["Chronograph", "Manual winding", "Sapphire crystal"],
+    "description": "The Omega Speedmaster is a historic timepiece, famously known as the first watch on the moon. This chronograph watch features a manual winding mechanism and a sapphire crystal. Its precision and durability make it a timeless piece suitable for any collection."
+  },
+  {
+    "id": 3,
+    "Name": "Tag Heuer Carrera",
+    "Price": {
+      "oldPrice": false,
+      "newPrice": 4500
+    },
+    "Date": "2024-03-05",
+    "IdCategory": 1,
+    "Popularity": 4,
+    "Image": {
+      "src": "assets/img/gallery/popular1.png",
+      "alt": "Tag Heuer Carrera"
+    },
+    "IdBrand": 3,
+    "Characteristics": [
+      "Tachymeter scale",
+      "Stainless steel",
+      "Automatic movement"
+    ],
+    "description": "The Tag Heuer Carrera is a sleek and stylish watch designed for those who appreciate both form and function. Featuring a tachymeter scale, stainless steel construction, and automatic movement, it's perfect for the modern professional. The Carrera is both elegant and practical, making it a versatile addition to any wardrobe."
+  },
+  {
+    "id": 4,
+    "Name": "Casio G-Shock",
+    "Price": {
+      "oldPrice": 150,
+      "newPrice": 120
+    },
+    "Date": "2024-03-20",
+    "IdCategory": 2,
+    "Popularity": 4,
+    "Image": {
+      "src": "assets/img/gallery/gshock.png",
+      "alt": "Casio G-Shock"
+    },
+    "IdBrand": 4,
+    "Characteristics": [
+      "Shock resistant",
+      "200m water-resistant",
+      "Digital display"
+    ],
+    "description": "The Casio G-Shock is renowned for its toughness and durability. This watch is shock resistant and water-resistant up to 200 meters, making it ideal for extreme conditions. Its digital display provides easy readability, and the robust design ensures it can withstand heavy use."
+  },
+  {
+    "id": 5,
+    "Name": "Seiko Prospex",
+    "Price": {
+      "oldPrice": 350,
+      "newPrice": 320
+    },
+    "Date": "2024-04-15",
+    "IdCategory": 2,
+    "Popularity": 3,
+    "Image": {
+      "src": "assets/img/gallery/prospex.png",
+      "alt": "Seiko Prospex"
+    },
+    "IdBrand": 5,
+    "Characteristics": [
+      "Solar powered",
+      "200m water-resistant",
+      "Diver's watch"
+    ],
+    "description": "The Seiko Prospex is a solar-powered diver's watch that combines functionality and eco-friendliness. With water resistance up to 200 meters, it's perfect for underwater activities. The durable build and reliable performance make it a great choice for adventurers."
+  },
+  {
+    "id": 6,
+    "Name": "Apple Watch Series 8",
+    "Price": {
+      "oldPrice": false,
+      "newPrice": 400
+    },
+    "Date": "2024-05-10",
+    "IdCategory": 5,
+    "Popularity": 5,
+    "Image": {
+      "src": "assets/img/gallery/apple.png",
+      "alt": "Apple Watch Series 8"
+    },
+    "IdBrand": 6,
+    "Characteristics": ["Touchscreen", "Heart rate monitor", "GPS"],
+    "description": "The Apple Watch Series 8 is a cutting-edge smartwatch that offers a wide range of features, including a touchscreen, heart rate monitor, and GPS. It's designed for those who want to stay connected and monitor their health on the go. The sleek design and advanced technology make it a must-have gadget."
+  },
+  {
+    "id": 7,
+    "Name": "Fossil Gen 6",
+    "Price": {
+      "oldPrice": 300,
+      "newPrice": 250
+    },
+    "Date": "2024-05-25",
+    "IdCategory": 5,
+    "Popularity": 4,
+    "Image": {
+      "src": "assets/img/gallery/gen6.png",
+      "alt": "Fossil Gen 6"
+    },
+    "IdBrand": 7,
+    "Characteristics": ["Wear OS", "Heart rate monitor", "Customizable dials"],
+    "description": "The Fossil Gen 6 is a versatile smartwatch that runs on Wear OS. It features a heart rate monitor and customizable dials, allowing you to personalize your watch to suit your style. The modern design and smart features make it an excellent companion for everyday use."
+  },
+  {
+    "id": 8,
+    "Name": "Rolex Datejust",
+    "Price": {
+      "oldPrice": 9000,
+      "newPrice": 8500
+    },
+    "Date": "2024-06-01",
+    "IdCategory": 1,
+    "Popularity": 5,
+    "Image": {
+      "src": "assets/img/gallery/card1.png",
+      "alt": "Rolex Datejust"
+    },
+    "IdBrand": 1,
+    "Characteristics": ["Oyster case", "Cyclops lens", "Automatic movement"],
+    "description": "The Rolex Datejust is a classic timepiece known for its elegant design and reliable performance. Featuring an Oyster case, Cyclops lens, and automatic movement, it is both stylish and functional. This watch is a symbol of sophistication and timeless luxury."
+  },
+  {
+    "id": 9,
+    "Name": "Omega Seamaster",
+    "Price": {
+      "oldPrice": false,
+      "newPrice": 7000
+    },
+    "Date": "2024-06-15",
+    "IdCategory": 1,
+    "Popularity": 4,
+    "Image": {
+      "src": "assets/img/gallery/popular5.png",
+      "alt": "Omega Seamaster"
+    },
+    "IdBrand": 2,
+    "Characteristics": [
+      "Diver's watch",
+      "Helium escape valve",
+      "Co-Axial movement"
+    ],
+    "description": "The Omega Seamaster is a high-performance diver's watch designed for underwater exploration. With a helium escape valve and Co-Axial movement, it offers exceptional accuracy and durability. This watch is perfect for those who seek adventure and precision."
+  },
+  {
+    "id": 10,
+    "Name": "Tag Heuer Monaco",
+    "Price": {
+      "oldPrice": 5000,
+      "newPrice": 4700
+    },
+    "Date": "2024-07-05",
+    "IdCategory": 1,
+    "Popularity": 4,
+    "Image": {
+      "src": "assets/img/gallery/popular3.png",
+      "alt": "Tag Heuer Monaco"
+    },
+    "IdBrand": 3,
+    "Characteristics": ["Square case", "Chronograph", "Automatic movement"],
+    "description": "The Tag Heuer Monaco is a distinctive watch known for its square case and chronograph function. Featuring an automatic movement, it combines style and precision. This watch is a favorite among those who appreciate unique design and superior craftsmanship."
+  },
+  {
+    "id": 11,
+    "Name": "Casio Edifice",
+    "Price": {
+      "oldPrice": 200,
+      "newPrice": 180
+    },
+    "Date": "2024-07-20",
+    "IdCategory": 3,
+    "Popularity": 3,
+    "Image": {
+      "src": "assets/img/gallery/ediface.png",
+      "alt": "Casio Edifice"
+    },
+    "IdBrand": 4,
+    "Characteristics": ["Stainless steel", "Chronograph", "Solar powered"],
+    "description": "The Casio Edifice is a sophisticated watch that combines advanced technology with a sleek design. It features a stainless steel case, chronograph functions, and solar-powered movement. This watch is perfect for those who want both style and practicality."
+  },
+  {
+    "id": 12,
+    "Name": "Seiko Presage",
+    "Price": {
+      "oldPrice": 400,
+      "newPrice": 350
+    },
+    "Date": "2024-08-10",
+    "IdCategory": 3,
+    "Popularity": 4,
+    "Image": {
+      "src": "assets/img/gallery/seiko.png",
+      "alt": "Seiko Presage"
+    },
+    "IdBrand": 5,
+    "Characteristics": [
+      "Automatic movement",
+      "Sapphire crystal",
+      "Enamel dial"
+    ],
+    "description": "The Seiko Presage is an elegant watch with an automatic movement and a beautiful enamel dial. Featuring a sapphire crystal, it is both durable and stylish. This watch is a great choice for those who appreciate fine craftsmanship and timeless design."
+  }
+]

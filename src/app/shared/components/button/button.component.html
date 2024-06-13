@@ -1,3 +1,10 @@
-<div [ngClass]="className" class="pt-70">
-  <a [routerLink]="link" [ngClass]="innerClass" class="btn">{{ buttonText }}</a>
+<div [ngClass]="className">
+  <button
+    [routerLink]="link"
+    [ngClass]="innerClass"
+    class="btn"
+    [disabled]="isEnabled"
+  >
+    {{ buttonText }}
+  </button>
 </div>

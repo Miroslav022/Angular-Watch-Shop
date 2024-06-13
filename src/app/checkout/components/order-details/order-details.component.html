@@ -1,0 +1,42 @@
+<div class="order_details_iner">
+  <h3>Order Details</h3>
+  <table class="table table-borderless">
+    <thead>
+      <tr>
+        <th scope="col" colspan="2">Product</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (Product of orderedProducts; track $index) {
+      <tr>
+        <th colspan="2">
+          <span>{{ Product.product.Name }}</span>
+        </th>
+        <th>x{{ Product.qty }}</th>
+        <th>
+          <span>${{ Product.product.Price.newPrice }}</span>
+        </th>
+      </tr>
+      }
+
+      <tr>
+        <th colspan="3">Subtotal</th>
+        <th>
+          <span>${{ totalPrice }}</span>
+        </th>
+      </tr>
+      <tr>
+        <th colspan="3">shipping</th>
+        <th><span>flat rate: $200.00</span></th>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th scope="col" colspan="3">Quantity</th>
+        <th scope="col">Total ${{ totalPrice + 200 }}</th>
+      </tr>
+    </tfoot>
+  </table>
+</div>

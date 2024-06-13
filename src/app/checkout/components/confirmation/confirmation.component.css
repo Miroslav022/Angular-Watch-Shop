@@ -1,0 +1,37 @@
+.confirmation_part .single_confirmation_details {
+  background-color: #f7f7f7;
+  padding: 35px 40px;
+}
+@media (max-width: 991px) {
+  .confirmation_part .single_confirmation_details {
+    margin-bottom: 15px;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .confirmation_part .single_confirmation_details {
+    margin-bottom: 30px;
+  }
+}
+.confirmation_part .single_confirmation_details h4 {
+  font-size: 18px;
+  font-weight: 500;
+  color: "Roboto", sans-serif;
+  text-transform: capitalize;
+  margin-bottom: 16px;
+}
+.confirmation_part .single_confirmation_details ul li {
+  position: relative;
+  text-transform: capitalize;
+  padding-left: 55%;
+  margin-bottom: 3px;
+}
+.confirmation_part .single_confirmation_details ul li p {
+  position: absolute;
+  left: 0;
+  top: 0;
+  line-height: 21px;
+  color: #777;
+}
+.confirmation_part .single_confirmation_details ul li span {
+  color: "Roboto", sans-serif;
+}

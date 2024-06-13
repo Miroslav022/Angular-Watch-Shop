@@ -1,14 +1,28 @@
+<app-brand-filter></app-brand-filter>
+<app-category-filter></app-category-filter>
 <div class="row product-btn justify-content-between mb-40">
   <div class="properties__button">
     <!--Nav Button  -->
     <nav>
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
         <app-filter-button
-          [ngClass]="'active'"
           filterOption="Newest Arrivals"
+          activeClass="{{
+            selectedSortOption === 'newest arrivals' ? 'active' : ''
+          }}"
         ></app-filter-button>
-        <app-filter-button filterOption="Price high to low"></app-filter-button>
-        <app-filter-button filterOption="Most popular"></app-filter-button>
+        <app-filter-button
+          filterOption="Price high to low"
+          activeClass="{{
+            selectedSortOption === 'price high to low' ? 'active' : ''
+          }}"
+        ></app-filter-button>
+        <app-filter-button
+          filterOption="Most popular"
+          activeClass="{{
+            selectedSortOption === 'most popular' ? 'active' : ''
+          }}"
+        ></app-filter-button>
       </div>
     </nav>
     <!--End Nav Button  -->
@@ -16,5 +30,6 @@
   <!-- Grid and List view -->
   <div class="grid-list-view"></div>
   <!-- Select items -->
-  <app-select [perPage]="perPage"></app-select>
+  <!-- <app-select [perPage]="perPage"></app-select> -->
+  <app-search></app-search>
 </div>

@@ -1,3 +1,6 @@
+<app-notification-component
+  [message]="notificationMessage"
+></app-notification-component>
 <div class="popular-items section-padding30">
   <div class="container">
     <!-- Section tittle -->
@@ -5,11 +8,7 @@
       <div class="col-xl-7 col-lg-8 col-md-10">
         <div class="section-tittle mb-70 text-center">
           <h2>Popular Items</h2>
-          <p>
-            Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices
-            gravida.
-          </p>
+          <p>Explore our most popular products and elevate your style game.</p>
         </div>
       </div>
     </div>
@@ -17,9 +16,8 @@
       @for (product of products; track $index) {
       <app-watch
         [ngClass]="'col-xl-4 col-lg-4 col-md-6 col-sm-6'"
-        [Name]="product.name"
-        [Price]="product.price"
-        [Image]="product.Image"
+        [Product]="product"
+        (atcMessage)="showNotification('Product added to cart!')"
       ></app-watch>
       }
     </div>
@@ -28,7 +26,10 @@
       <!-- <div class="room-btn pt-70">
                 <a href="catagori.html" class="btn view-btn1">View More Products</a>
             </div> -->
-      <app-button [buttonText]="'View More Products'"></app-button>
+      <app-button
+        className="pt-70"
+        [buttonText]="'View More Products'"
+      ></app-button>
     </div>
   </div>
 </div>

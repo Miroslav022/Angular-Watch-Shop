@@ -1,0 +1,43 @@
+<app-notification-component
+  [message]="notificationMessage"
+></app-notification-component>
+<div class="container my-5">
+  <div class="row">
+    <!-- Product Image -->
+    <div class="col-md-6">
+      <img
+        src="{{ product?.Image?.src }}"
+        alt="{{ product?.Image?.alt }}"
+        class="img-fluid productImg"
+      />
+    </div>
+
+    <!-- Product Details -->
+    <div class="col-md-6">
+      <h1 class="product-name">{{ product?.Name }}</h1>
+      <p class="product-brand"><strong>Brand:</strong> {{ brand }}</p>
+      <p class="product-category"><strong>Category:</strong> {{ category }}</p>
+      <p class="product-price">
+        @if(product?.Price?.oldPrice ){<strong class="mr-2">Old price:</strong
+        ><del class="mr-2">${{ product?.Price?.oldPrice }}</del
+        >} <strong>Actual price:</strong> ${{ product?.Price?.newPrice }}
+      </p>
+      <h4>Characteristics</h4>
+      <ul class="product-characteristics">
+        @for (charac of product?.Characteristics; track $index) {
+        <li>{{ charac }}</li>
+        }
+      </ul>
+      <h4>Description</h4>
+      <p class="product-description">
+        {{ product?.description }}
+      </p>
+      <a
+        class="btn text-white d-flex flex-grow justify-content-center"
+        data-id="{{ product?.id }}"
+        (click)="addToCart($event)"
+        >Add to cart</a
+      >
+    </div>
+  </div>
+</div>

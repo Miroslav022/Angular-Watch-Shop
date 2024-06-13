@@ -8,19 +8,19 @@ import { Component } from '@angular/core';
 export class NewArrivalsComponent {
   products: any = [
     {
-      name: 'Product 1',
-      price: 19.99,
-      image: 'https://example.com/images/product1.jpg',
+      name: "Seiko Prospex Diver's Watch",
+      price: 1999.99,
+      image: 'assets/img/gallery/new_product1.png',
     },
     {
-      name: 'Product 2',
-      price: 29.99,
-      image: 'https://example.com/images/product2.jpg',
+      name: 'Citizen Eco-Drive Titanium',
+      price: 2999.99,
+      image: 'assets/img/gallery/new_product2.png',
     },
     {
-      name: 'Product 3',
-      price: 39.99,
-      image: 'https://example.com/images/product3.jpg',
+      name: 'Breitling Navitimer 8',
+      price: 3999.99,
+      image: 'assets/img/gallery/new_product3.png',
     },
   ];
 }

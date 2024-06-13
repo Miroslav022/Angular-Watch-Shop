@@ -1,0 +1,42 @@
+<div class="order_box">
+  <h2>Your Order</h2>
+  <ul class="list">
+    <li>
+      <p>
+        Product
+        <span>Total</span>
+      </p>
+    </li>
+    @for (product of cart; track $index) {
+    <li>
+      <p>
+        {{ product.product.Name }}
+        <span class="middle">x {{ product.qty }}</span>
+        <span class="last"
+          >${{ product.product.Price.newPrice * product.qty }}</span
+        >
+      </p>
+    </li>
+    }
+  </ul>
+  <ul class="list list_2">
+    <li>
+      <p>
+        Subtotal
+        <span>${{ totalPrice }}</span>
+      </p>
+    </li>
+    <li>
+      <p>
+        Shipping
+        <span>Flat rate: $200.00</span>
+      </p>
+    </li>
+    <li>
+      <p>
+        Total
+        <span>${{ totalPrice + 200 }}</span>
+      </p>
+    </li>
+  </ul>
+</div>

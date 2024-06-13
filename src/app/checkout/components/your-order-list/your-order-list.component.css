@@ -1,0 +1,62 @@
+.order_box {
+  background: #f7f7f7;
+  padding: 30px;
+}
+.order_box h2 {
+  border-bottom: 1px solid #dddddd;
+  font-size: 18px;
+  font-weight: 500;
+  color: #415094;
+  padding-bottom: 15px;
+}
+.order_box .list li p {
+  font-size: 14px;
+  color: #828bb2;
+  font-weight: normal;
+  border-bottom: 1px solid #eeeeee;
+  display: block;
+  line-height: 42px;
+}
+.order_box .list li p span {
+  float: right;
+}
+.order_box .list li p .middle {
+  float: none;
+  width: 50px;
+  text-align: right;
+  display: inline-block;
+  margin-left: 30px;
+  color: #415094;
+}
+.order_box .list li:nth-child(4) p .middle {
+  margin-left: 48px;
+}
+.order_box .list_2 li p {
+  text-transform: uppercase;
+  color: #415094;
+  font-weight: 500;
+}
+.order_box .list_2 li p span {
+  color: #828bb2;
+  text-transform: capitalize;
+}
+.order_box .list_2 li:last-child p span {
+  color: #415094;
+}
+
+.order_box .btn_3 {
+  display: block;
+  line-height: 38px;
+  text-transform: uppercase;
+  text-align: center;
+}
+@media (max-width: 991px) {
+  .order_box .btn_3 {
+    padding: 9px 34px;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .order_box .btn_3 {
+    padding: 9px 34px;
+  }
+}

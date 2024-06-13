@@ -207,7 +207,7 @@ input:focus::-moz-placeholder {
   position: relative;
 }
 .theme-overlay::before {
-  background: #1696e7 none repeat scroll 0 0;
+  /* background: #1696e7 none repeat scroll 0 0; */
   content: "";
   height: 100%;
   left: 0;
@@ -264,7 +264,7 @@ input:focus::-moz-placeholder {
     margin-bottom: 45px;
   }
 }
-.owl-carousel .owl-nav div {
+/* .owl-carousel .owl-nav div {
   background: rgba(255, 255, 255, 0.8) none repeat scroll 0 0;
   height: 40px;
   left: 20px;
@@ -279,7 +279,7 @@ input:focus::-moz-placeholder {
   transform: translateY(-50%);
   transition: all 0.3s ease 0s;
   width: 40px;
-}
+} */
 .owl-carousel .owl-nav div.owl-next {
   left: auto;
   right: -30px;
@@ -2484,4 +2484,32 @@ input:focus {
 .shop-method-area .method-wrapper .single-method p {
   font-size: 16px;
   color: #d3d1d1;
+}
+
+/*Form input css*/
+.form-contact label {
+  font-size: 14px;
+}
+.form-contact .form-group {
+  margin-bottom: 30px;
+}
+.form-contact .form-control {
+  border: 1px solid #e5e6e9;
+  border-radius: 0px;
+  height: 48px;
+  padding-left: 18px;
+  font-size: 13px;
+  background: transparent;
+}
+.form-contact .form-control:focus {
+  outline: 0;
+  box-shadow: none;
+}
+.form-contact .form-control::placeholder {
+  font-weight: 300;
+  color: #999999;
+}
+.form-contact textarea {
+  border-radius: 0px;
+  height: 100% !important;
 }

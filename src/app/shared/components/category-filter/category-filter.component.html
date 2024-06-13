@@ -1,0 +1,12 @@
+<h3>Filter by categories</h3>
+<div class="row">
+  @for (category of categories; track $index) {
+  <div class="cb ml-3">
+    <app-checkbox
+      [label]="category.category"
+      [id]="category.id"
+      (filterChange)="onCategoryChange($event)"
+    ></app-checkbox>
+  </div>
+  }
+</div>

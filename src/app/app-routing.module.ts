@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/components/layout/layout.component';
 import { AboutUsComponent } from './about-us/components/about-us/about-us.component';
 import { ContactComponent } from './contact/components/contact/contact.component';
+import { CartComponent } from './cart/components/cart/cart.component';
+import { authGuard } from './auth/auth.guard';
+import { ProductPageComponent } from './product-page/components/product-page/product-page.component';
 
 const routes: Routes = [
   {
@@ -25,12 +28,26 @@ const routes: Routes = [
           import('./shop/shop.module').then((m) => m.ShopModule),
       },
       {
+        path: 'checkout',
+        loadChildren: () =>
+          import('./checkout/checkout.module').then((m) => m.CheckoutModule),
+        canActivate: [authGuard],
+      },
+      {
         path: 'about',
         component: AboutUsComponent,
       },
       {
         path: 'contact',
         component: ContactComponent,
+      },
+      {
+        path: 'cart',
+        component: CartComponent,
+      },
+      {
+        path: 'product/:id',
+        component: ProductPageComponent,
       },
       {
         path: '**',

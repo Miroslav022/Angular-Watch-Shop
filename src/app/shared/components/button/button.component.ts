@@ -10,4 +10,6 @@ export class ButtonComponent {
   @Input() className: string = 'room-btn';
   @Input() innerClass: string = 'view-btn1';
   @Input() link: string = '/shop';
+  @Input() isEnabled: boolean = false;
+  @Input() onClick: Function;
 }

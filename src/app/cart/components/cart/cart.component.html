@@ -1,0 +1,100 @@
+<app-banner bannerText="Cart list"></app-banner>
+<section class="cart_area section_padding">
+  <div class="container">
+    <div class="cart_inner">
+      @if (cart.length!==0) {
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Product</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <app-cart-item [product]="cart"></app-cart-item> -->
+            <tr *ngFor="let product of cart">
+              <td>
+                <div class="media">
+                  <div class="d-flex">
+                    <img
+                      src="{{ product.product.Image.src }}"
+                      alt="{{ product.product.Image.alt }}"
+                    />
+                  </div>
+                  <div class="media-body">
+                    <p>{{ product.product.Name }}</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <h5>${{ product.product.Price.newPrice }}</h5>
+              </td>
+              <td>
+                <div class="product_count">
+                  <button
+                    class="changeInputValue"
+                    (click)="changeQtyValueInc(product.product.id)"
+                  >
+                    +
+                  </button>
+                  <input
+                    class="input-number"
+                    type="text"
+                    [value]="product.qty"
+                    min="0"
+                    max="100"
+                  />
+                  <button
+                    class="changeInputValue"
+                    (click)="changeQtyValueDec(product.product.id)"
+                  >
+                    -
+                  </button>
+                </div>
+              </td>
+              <td>
+                <h5>${{ product.qty * product.product.Price.newPrice }}</h5>
+              </td>
+              <td>
+                <button
+                  class="btn btn-danger btn-sm"
+                  (click)="onDelete(product.product.id)"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td>
+                <h5>Subtotal</h5>
+              </td>
+              <td>
+                <h5>
+                  ${{ totalPrice }} + $200 shipping = $ {{ totalPrice + 200 }}
+                </h5>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="row justify-content-end">
+        <div class="col-3 d-flex justify-content-end">
+          <app-button
+            className="pt-30"
+            link="/checkout"
+            buttonText="Checkout"
+          ></app-button>
+        </div>
+      </div>
+      } @else {
+      <div class="alert alert-danger" role="alert">Empty cart!</div>
+      }
+    </div>
+  </div>
+</section>

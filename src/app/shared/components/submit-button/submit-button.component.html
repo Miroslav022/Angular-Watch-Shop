@@ -1,0 +1,10 @@
+<div class="form-group mt-3">
+  <button
+    type="submit"
+    class="button button-contactForm boxed-btn"
+    [disabled]="isDisabled"
+    (click)="onClickButton()"
+  >
+    {{ processing ? "sending..." : "Send" }}
+  </button>
+</div>

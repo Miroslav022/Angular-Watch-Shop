@@ -1,0 +1,9 @@
+<div class="form-group">
+  <input
+    class="form-control valid"
+    [placeholder]="placeholder"
+    [name]="controlName"
+    [formControl]="form.get(controlName)"
+  />
+  <ng-content></ng-content>
+</div>

@@ -1,0 +1,12 @@
+<h3>Filter by brands:</h3>
+<div class="row">
+  @for (brand of brands; track $index) {
+  <div class="cb ml-3">
+    <app-checkbox
+      [label]="brand.brand"
+      [id]="brand.id"
+      (filterChange)="onBrandChange($event)"
+    ></app-checkbox>
+  </div>
+  }
+</div>

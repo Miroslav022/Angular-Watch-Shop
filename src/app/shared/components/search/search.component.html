@@ -1,0 +1,10 @@
+<!-- <app-input
+  placeholder="Search..."
+  (valueChange)="changeSearchValue($event)"
+></app-input> -->
+<input
+  class="form-control valid"
+  placeholder="Search..."
+  [(ngModel)]="search"
+  (input)="changeSearchValue()"
+/>

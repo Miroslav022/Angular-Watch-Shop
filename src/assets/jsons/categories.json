@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "category": "Luxury"
+  },
+  {
+    "id": 2,
+    "category": "Sports"
+  },
+  {
+    "id": 3,
+    "category": "Classic"
+  },
+  {
+    "id": 4,
+    "category": "Digital"
+  },
+  {
+    "id": 5,
+    "category": "Smart"
+  }
+]

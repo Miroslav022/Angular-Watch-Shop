@@ -5,8 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { AboutUsModule } from './about-us/about-us.module';
-import { ContactComponent } from './contact/components/contact/contact.component';
 import { ContactModule } from './contact/contact.module';
+import { SharedModule } from './shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
+import { CartModule } from './cart/cart.module';
+import { ProductPageModule } from './product-page/product-page.module';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -15,6 +19,11 @@ import { ContactModule } from './contact/contact.module';
     LayoutModule,
     AboutUsModule,
     ContactModule,
+    SharedModule,
+    HttpClientModule,
+    CartModule,
+    ProductPageModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

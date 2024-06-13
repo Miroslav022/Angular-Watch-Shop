@@ -51,6 +51,9 @@
   border-radius: 0;
   width: 100%;
 }
+.single-popular-items {
+  cursor: pointer;
+}
 
 /*hover effect*/
 .single-popular-items:hover .popular-img .img-cap {
@@ -61,4 +64,12 @@
 .single-popular-items:hover .popular-img .favorit-items {
   opacity: 1;
   visibility: visible;
+}
+
+.seeDetailsBtn {
+  background-color: #e2e2e2;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 10px;
+  font-weight: 600;
 }
