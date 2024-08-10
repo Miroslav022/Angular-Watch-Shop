@@ -1,0 +1,242 @@
+<main>
+  <!-- Hero Area Start-->
+  <app-banner bannerText="Registration"></app-banner>
+  @if (isRegistered) {
+  <app-notification-component
+    message="Successfully registration"
+  ></app-notification-component>
+  } @if (isFailed) {
+  <app-notification-component
+    message="There was an error during registration!"
+    notificationClass="notificationFailed"
+  ></app-notification-component>
+  }
+  <!-- Hero Area End-->
+  <!--================login_part Area =================-->
+  <section class="login_part section_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-6">
+          <div class="login_part_form">
+            <div class="login_part_form_iner">
+              <h3>
+                Welcome! <br />
+                Create new account
+              </h3>
+              <form class="row contact_form" [formGroup]="form">
+                <!-- Email -->
+                <div class="form-group col-md-12 p-star">
+                  <label for="email">Email:</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Enter email"
+                    name="email"
+                    [formControl]="form.get('email')"
+                  />
+                  @if(form.get('email').hasError('required')) {
+                  <div class="mt-10">
+                    <div class="alert alert-danger">Email is required</div>
+                  </div>
+                  } @if(form.get('email').hasError('email')) {
+                  <div class="mt-10">
+                    <div class="alert alert-danger">
+                      Email is in wrong format
+                    </div>
+                  </div>
+                  }
+                </div>
+
+                <!-- First Name -->
+                <div class="col-md-12 form-group p_star">
+                  <label for="firstName">First Name:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="firstName"
+                    placeholder="Enter first name"
+                    name="firstName"
+                    [formControl]="form.get('firstName')"
+                  />
+                  @if(form.get('firstName').hasError('required')){
+                  <div class="alert alert-danger mt-10">
+                    First name is required
+                  </div>
+                  } @if(form.get('firstName').hasError('minlength')){
+                  <div class="alert alert-danger mt-10">
+                    First name must contain at least 3 characters
+                  </div>
+                  }
+                </div>
+
+                <!-- Last Name -->
+                <div class="col-md-12 form-group p_star">
+                  <label for="lastName">Last Name:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="lastName"
+                    placeholder="Enter last name"
+                    name="lastName"
+                    required
+                    [formControl]="form.get('lastName')"
+                  />
+                  @if(form.get('lastName').hasError('required')){
+                  <div class="alert alert-danger mt-10">
+                    Last name is required
+                  </div>
+                  } @if(form.get('lastName').hasError('minlength')){
+                  <div class="alert alert-danger mt-10">
+                    Last name must contain at least 3 characters
+                  </div>
+                  }
+                </div>
+
+                <!-- Username -->
+                <div class="col-md-12 form-group p_star">
+                  <label for="username">Username:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    placeholder="Enter username"
+                    name="username"
+                    [formControl]="form.get('username')"
+                  />
+                  @if(form.get('username').hasError('required')){
+                  <div class="alert alert-danger mt-10">
+                    Last name is required
+                  </div>
+                  } @if(form.get('username').hasError('minlength')){
+                  <div class="alert alert-danger mt-10">
+                    User name must contain at least 3 characters
+                  </div>
+                  }
+                </div>
+
+                <!-- Password -->
+                <div class="col-md-12 form-group p_star">
+                  <label for="password">Password:</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    placeholder="Enter password"
+                    name="password"
+                    [formControl]="form.get('password')"
+                  />
+                  @if(form.get('password').hasError('required')){
+                  <div class="alert alert-danger mt-10">
+                    Password is required
+                  </div>
+                  } @if(form.get('password').hasError('pattern')){
+                  <div class="alert alert-danger mt-10">Passwort ...</div>
+                  }
+                </div>
+
+                <!-- Birth Date -->
+                <div class="col-md-12 form-group p_star">
+                  <label for="birthDate">Birth Date:</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="birthDate"
+                    name="birthDate"
+                    [formControl]="form.get('birthDate')"
+                  />
+                  @if(form.get('birthDate').hasError('required')){
+                  <div class="alert alert-danger mt-10">
+                    Birth Date is required
+                  </div>
+                  }
+                </div>
+
+                <!-- Country -->
+                <div class="col-md-12 form-group p_star">
+                  <label for="country">Country:</label>
+                  <select
+                    class="form-control"
+                    id="country"
+                    name="country"
+                    [formControl]="form.get('country')"
+                  >
+                    <option value="0">Select country</option>
+                    @for (country of Countries; track $index) {
+                    <option [value]="country.id">{{ country.name }}</option>
+                    }
+                  </select>
+                  @if(form.get('country').hasError('pattern')) {
+                  <div class="mt-10">
+                    <div class="alert alert-danger">Choose country</div>
+                  </div>
+                  }
+                </div>
+
+                <!-- City -->
+                <div class="col-md-12 form-group p_star">
+                  <label for="cityId">City:</label>
+                  <select
+                    [disabled]="isCityDisabled"
+                    class="form-control"
+                    id="cityId"
+                    name="cityId"
+                    [formControl]="form.get('city')"
+                  >
+                    <option value="0">Select city</option>
+                    @for (city of FilteredCity; track $index) {
+                    <option [value]="city.id">{{ city.city }}</option>
+                    }
+                  </select>
+                  @if(form.get('city').hasError('pattern')) {
+                  <div class="mt-10">
+                    <div class="alert alert-danger">Choose city</div>
+                  </div>
+                  }
+                </div>
+
+                <!-- Address -->
+                <div class="col-md-12 form-group p_star">
+                  <label for="address">Address:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="address"
+                    placeholder="Enter address"
+                    name="address"
+                    [formControl]="form.get('address')"
+                  />
+                  @if(form.get('address').hasError('required')) {
+                  <div class="mt-10">
+                    <div class="alert alert-danger">Address is required</div>
+                  </div>
+                  }
+                </div>
+                <div class="col-md-12 form-group">
+                  <button
+                    type="submit"
+                    value="submit"
+                    class="btn_3"
+                    (click)="onSubmit()"
+                  >
+                    log in
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <div class="login_part_text text-center">
+            <div class="login_part_text_iner">
+              <h2>Already have an account?</h2>
+              <p>Go to login page and type your credentials</p>
+              <a routerLink="/auth" class="btn_3">Login</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--================login_part end =================-->
+</main>

@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IProductInCart } from '../../../cart/interfaces/i-product-in-cart';
+import {
+  ICart,
+  IProductInCart,
+} from '../../../cart/interfaces/i-product-in-cart';
 import { CartService } from '../../../services/cart.service';
 
 @Component({
@@ -8,19 +11,29 @@ import { CartService } from '../../../services/cart.service';
   styleUrl: './your-order-list.component.css',
 })
 export class YourOrderListComponent implements OnInit {
-  cart: IProductInCart[] = [];
+  // @Input() cart: ICart;
+  cart: ICart;
   totalPrice: number = 0;
   constructor(private cartService: CartService) {}
   ngOnInit(): void {
-    this.cartService.cart.subscribe((x) => {
-      this.cart = x;
-      this.totalPriceCalculate();
+    this.cartService.getCart().subscribe({
+      next: (cartData) => {
+        this.cart = {
+          id: cartData.id,
+          createdAt: cartData.createdAt,
+          products: cartData.products,
+        };
+        this.totalPriceCalculate();
+      },
+      error: (error) => {
+        console.error(error);
+      },
     });
   }
 
   totalPriceCalculate(): void {
-    this.totalPrice = this.cart.reduce((acc, cur) => {
-      return (acc = acc + cur.product.Price.newPrice * cur.qty);
+    this.totalPrice = this.cart.products.reduce((acc, cur) => {
+      return (acc = acc + cur.price * cur.quantity);
     }, 0);
   }
 }

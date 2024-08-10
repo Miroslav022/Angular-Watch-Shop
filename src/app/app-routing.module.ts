@@ -6,6 +6,8 @@ import { ContactComponent } from './contact/components/contact/contact.component
 import { CartComponent } from './cart/components/cart/cart.component';
 import { authGuard } from './auth/auth.guard';
 import { ProductPageComponent } from './product-page/components/product-page/product-page.component';
+import { MyOrdersComponent } from './my-orders/components/my-orders/my-orders.component';
+import { adminpanelGuard } from './adminpanel.guard';
 
 const routes: Routes = [
   {
@@ -34,6 +36,16 @@ const routes: Routes = [
         canActivate: [authGuard],
       },
       {
+        path: 'auth',
+        loadChildren: () =>
+          import('./auth/auth.module').then((m) => m.AuthModule),
+      },
+      {
+        path: 'myOrders',
+        component: MyOrdersComponent,
+        canActivate: [authGuard],
+      },
+      {
         path: 'about',
         component: AboutUsComponent,
       },
@@ -48,6 +60,14 @@ const routes: Routes = [
       {
         path: 'product/:id',
         component: ProductPageComponent,
+      },
+      {
+        path: 'adminpanel',
+        loadChildren: () =>
+          import('./admin-panel/admin-panel.module').then(
+            (m) => m.AdminPanelModule
+          ),
+        canActivate: [adminpanelGuard],
       },
       {
         path: '**',

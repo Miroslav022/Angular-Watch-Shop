@@ -8,3 +8,14 @@
   border-radius: 5px;
   z-index: 1000;
 }
+
+.notificationFailed {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #dd0000;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  z-index: 1000;
+}

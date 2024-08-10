@@ -1,0 +1,38 @@
+<div class="container mt-5">
+  <h2 class="mb-4">Order Details</h2>
+  @if(myOrders && myOrders.data.length>0){ @for (order of myOrders.data; track
+  $index) {
+  <div class="card mt-10">
+    <div class="card-header">
+      <h4>Order #{{ order.id }}</h4>
+      <p><strong>Total:</strong> ${{ order.total }}</p>
+      <p><strong>Status:</strong> {{ order.status }}</p>
+    </div>
+    <div class="card-body">
+      <h5>Order Items</h5>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of order.orderItems; track $index) {
+          <tr>
+            <td>{{ $index + 1 }}</td>
+            <td>{{ item.name }}</td>
+            <td>${{ item.price }}</td>
+            <td>{{ item.quantity }}</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+  } } @else {
+  <div class="alert alert-danger">There is no orders</div>
+  }
+</div>

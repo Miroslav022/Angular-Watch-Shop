@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class NotificationComponentComponent {
   @Input() message: string | null = null;
+  @Input() notificationClass: string = 'notification';
 }

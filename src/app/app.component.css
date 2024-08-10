@@ -65,3 +65,116 @@
   font-weight: 500;
   display: block;
 }
+
+.btn_3 {
+  display: inline-block;
+  padding: 18px 36px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 1px solid #2577fd;
+  font-size: 15px;
+  font-weight: 700;
+  color: #2577fd;
+  text-transform: uppercase;
+  font-weight: 400;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+.btn_3:hover {
+  background-color: #2577fd;
+  color: #fff;
+}
+.btn_2 {
+  display: inline-block;
+  width: 180px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  background-color: #fff;
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: #1e1e1e;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  text-transform: capitalize;
+}
+.btn_2:hover {
+  color: #fff !important;
+  background-color: #2577fd;
+}
+@media (max-width: 991px) {
+  .btn_2 {
+    height: 50px;
+    width: 140px;
+    line-height: 50px;
+  }
+}
+.btn_4 {
+  color: #ff2020;
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 53px;
+  display: inline-block;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+@media (max-width: 991px) {
+  .btn_4 {
+    margin-top: 30px;
+  }
+}
+.btn_4 img {
+  width: 20px;
+  margin-left: 15px;
+}
+.button {
+  display: inline-block;
+  border: 1px solid transparent;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 12px 54px;
+  border-radius: 4px;
+  color: #fff;
+  border: 1px solid #fdcb9e;
+  text-transform: uppercase;
+  background-color: #ff2020;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+@media (max-width: 767px) {
+  .button {
+    font-size: 13px;
+    padding: 9px 24px;
+  }
+}
+.button:hover {
+  color: #fff;
+}
+.button-link {
+  letter-spacing: 0;
+  color: #3b1d82;
+  border: 0;
+  padding: 0;
+}
+.button-link:hover {
+  background: transparent;
+  color: #3b1d82;
+}
+.button-header {
+  color: #fff;
+  border-color: #fdcb9e;
+}
+.button-header:hover {
+  background: #b8024c;
+  color: #fff;
+}

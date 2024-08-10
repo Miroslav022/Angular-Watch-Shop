@@ -2,7 +2,7 @@
 <section class="cart_area section_padding">
   <div class="container">
     <div class="cart_inner">
-      @if (cart.length!==0) {
+      @if (cart && cart.products.length > 0;) {
       <div class="table-responsive">
         <table class="table">
           <thead>
@@ -16,53 +16,47 @@
           </thead>
           <tbody>
             <!-- <app-cart-item [product]="cart"></app-cart-item> -->
-            <tr *ngFor="let product of cart">
+            <tr *ngFor="let product of cart.products">
               <td>
                 <div class="media">
-                  <div class="d-flex">
-                    <img
-                      src="{{ product.product.Image.src }}"
-                      alt="{{ product.product.Image.alt }}"
-                    />
-                  </div>
                   <div class="media-body">
-                    <p>{{ product.product.Name }}</p>
+                    <p>{{ product.name }}</p>
                   </div>
                 </div>
               </td>
               <td>
-                <h5>${{ product.product.Price.newPrice }}</h5>
+                <h5>${{ product.price }}</h5>
               </td>
               <td>
                 <div class="product_count">
                   <button
                     class="changeInputValue"
-                    (click)="changeQtyValueInc(product.product.id)"
+                    (click)="updateQuantity(product, 'increase')"
                   >
                     +
                   </button>
                   <input
                     class="input-number"
                     type="text"
-                    [value]="product.qty"
+                    [value]="product.quantity"
                     min="0"
                     max="100"
                   />
                   <button
                     class="changeInputValue"
-                    (click)="changeQtyValueDec(product.product.id)"
+                    (click)="updateQuantity(product, 'decrease')"
                   >
                     -
                   </button>
                 </div>
               </td>
               <td>
-                <h5>${{ product.qty * product.product.Price.newPrice }}</h5>
+                <h5>${{ product.quantity * product.price }}</h5>
               </td>
               <td>
                 <button
                   class="btn btn-danger btn-sm"
-                  (click)="onDelete(product.product.id)"
+                  (click)="onDelete(product.id)"
                 >
                   Delete
                 </button>

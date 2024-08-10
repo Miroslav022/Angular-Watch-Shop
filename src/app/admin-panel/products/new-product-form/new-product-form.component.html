@@ -1,0 +1,166 @@
+@if(isFailed){
+<app-notification-component
+  message="Something is wrong try again, maybe this name is already in the database, or session has expired"
+  notificationClass="notificationFailed"
+></app-notification-component>
+} @if(isSuccess){
+<app-notification-component
+  message="Added successfully"
+></app-notification-component>
+}
+<div class="card mb-4">
+  <div class="card-header">
+    <h5 class="card-title">Add New Product</h5>
+  </div>
+  <div class="card-body">
+    <form id="addProductForm" [formGroup]="form">
+      <div class="form-group">
+        <label for="productName">Product Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="productName"
+          [formControl]="form.get('productName')"
+        />
+        @if(form.get('productName').hasError('required')){
+        <div class="alert alert-danger mt-10">Productname is required</div>
+        } @if(form.get('productName').hasError('minlength')){
+        <div class="alert alert-danger mt-10">
+          Product name must contain at least 3 characters
+        </div>
+        }
+      </div>
+      <div class="form-group">
+        <label for="productDescription">Product Description</label>
+        <textarea
+          class="form-control"
+          id="productDescription"
+          [formControl]="form.get('description')"
+        ></textarea>
+        @if(form.get('description').hasError('required')){
+        <div class="alert alert-danger mt-10">Description is required</div>
+        }
+      </div>
+      <div class="form-group">
+        <label for="categoryId">Category</label>
+        <select class="form-control" [formControl]="form.get('category')">
+          <option value="0">Choose category</option>
+          @if(categories){ @for (category of categories.data; track $index) {
+          <option value="{{ category.id }}">{{ category.category }}</option>
+          } }
+        </select>
+        @if(form.get('category').hasError('pattern')) {
+        <div class="mt-10">
+          <div class="alert alert-danger">Choose category</div>
+        </div>
+        }
+      </div>
+      <div class="form-group">
+        <label for="brandId">Brand</label>
+        <select class="form-control" [formControl]="form.get('brand')">
+          <option value="0">Choose brand</option>
+          @if(brands){ @for (brand of brands.data; track $index) {
+          <option value="{{ brand.id }}">{{ brand.brand }}</option>
+          } }
+        </select>
+        @if(form.get('brand').hasError('pattern')) {
+        <div class="mt-10">
+          <div class="alert alert-danger">Choose brand</div>
+        </div>
+        }
+      </div>
+      <div class="form-group">
+        <label for="productSpecifications">Product Specifications</label>
+        <div id="specificationsContainer">
+          <div class="specification-item">
+            @if(specifications){ @for (specification of specifications.data;
+            track $index) {
+            <div class="form-row align-center mb-10">
+              <div class="col-2">
+                <label for="{{ specification.name }}">{{
+                  specification.name
+                }}</label>
+              </div>
+              <div class="col-10 d-flex">
+                <input
+                  type="text"
+                  class="form-control w-75"
+                  placeholder="Specification Value"
+                  required
+                  data-id="{{ specification.id }}"
+                  (input)="onChangeSpecification($event)"
+                />
+              </div>
+            </div>
+            } }
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="form-group">
+        <label for="productSpecifications">Product Specifications</label>
+        <div formArrayName="productSpecifications" id="specificationsContainer">
+          <div
+            *ngFor="let spec of specifications.data; let i = index"
+            class="specification-item"
+            [formGroupName]="i"
+          >
+            <div class="form-row align-center mb-10">
+              <div class="col-4">
+                <input
+                  type="checkbox"
+                  class="mr-10"
+                  formControlName="checked"
+                  id="{{ spec.name }}"
+                  value="{{ spec.id }}"
+                />
+                <label for="{{ spec.name }}">{{ spec.name }}</label>
+              </div>
+              <div class="col-8">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="value"
+                  placeholder="Specification Value"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <div class="form-group">
+        <label for="productPrice">Product Price</label>
+        <input
+          type="number"
+          class="form-control"
+          id="productPrice"
+          [formControl]="form.get('price')"
+        />
+        @if(form.get('price').hasError('required')){
+        <div class="alert alert-danger mt-10">Price is required</div>
+        } @if(form.get('price').hasError('pattern')){
+        <div class="alert alert-danger mt-10">
+          Price must contains only numbers
+        </div>
+        }
+      </div>
+      <div class="form-group">
+        <label for="productImages">Product Images</label>
+        <div id="imagesContainer">
+          <div class="image-item">
+            <input
+              type="file"
+              class="form-control mb-2"
+              placeholder="Image URL"
+              (change)="onFileChange($event)"
+            />
+          </div>
+        </div>
+        <!-- <button (click)="addImage()" class="btn">Add image</button> -->
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="AddProduct()">
+        Add Product
+      </button>
+    </form>
+  </div>
+</div>

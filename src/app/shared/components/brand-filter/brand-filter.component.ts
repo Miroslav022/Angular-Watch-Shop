@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BrandsApiService } from '../../../shop/business-logic/api/brands-api.service';
-import { IBrand } from '../../../shop/interfaces/ibrand';
+import { IBrand, IBrandPagination } from '../../../shop/interfaces/ibrand';
 import { FilteringService } from '../../../shop/business-logic/filtering/filtering.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { FilteringService } from '../../../shop/business-logic/filtering/filteri
 })
 export class BrandFilterComponent implements OnInit {
   selectedBrands: number[] = [];
-  brands: IBrand[] = [];
+  brands: IBrandPagination;
   constructor(
     private brandService: BrandsApiService,
     private filteringService: FilteringService
@@ -34,7 +34,13 @@ export class BrandFilterComponent implements OnInit {
   getBrands(): void {
     this.brandService.getBrands().subscribe({
       next: (data) => {
-        this.brands = data;
+        this.brands = {
+          pages: data.pages,
+          data: data?.data,
+          currentPage: data.currentPage,
+          totalCount: data.totalCount,
+          perPage: data.perPage,
+        };
       },
       error: (err) => {
         console.log(err);

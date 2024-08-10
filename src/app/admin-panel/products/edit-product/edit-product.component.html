@@ -1,0 +1,101 @@
+@if(isSuccess){
+<app-notification-component message="Edited successfully">
+</app-notification-component>
+} @if(isFailed){
+<app-notification-component
+  message="Something went wrong, maybe this name already exists"
+  notificationClass="notificationFailed"
+>
+</app-notification-component>
+}
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h5>Edit Brand</h5>
+    </div>
+    <div class="card-body">
+      <form id="addProductForm" [formGroup]="form">
+        <div class="form-group">
+          <label for="productName">Product Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="productName"
+            formControlName="productName"
+          />
+          @if(form.get('productName')?.hasError('required')){
+          <div class="alert alert-danger mt-10">Productname is required</div>
+          } @if(form.get('productName')?.hasError('minlength')){
+          <div class="alert alert-danger mt-10">
+            Product name must contain at least 3 characters
+          </div>
+          }
+        </div>
+        <div class="form-group">
+          <label for="productDescription">Product Description</label>
+          <textarea
+            class="form-control"
+            id="productDescription"
+            formControlName="description"
+          ></textarea>
+          @if(form.get('description')?.hasError('required')){
+          <div class="alert alert-danger mt-10">Description is required</div>
+          }
+        </div>
+        <div class="form-group">
+          <label for="categoryId">Category</label>
+          <select class="form-control" formControlName="category">
+            <option value="0">Choose category</option>
+            @if(categories){ @for (category of categories.data; track $index) {
+            <option value="{{ category.id }}">{{ category.category }}</option>
+            } }
+          </select>
+          @if(form.get('category')?.hasError('pattern')) {
+          <div class="mt-10">
+            <div class="alert alert-danger">Choose category</div>
+          </div>
+          }
+        </div>
+        <div class="form-group">
+          <label for="brandId">Brand</label>
+          <select class="form-control" formControlName="brand">
+            <option value="0">Choose brand</option>
+            @if(brands){ @for (brand of brands.data; track $index) {
+            <option value="{{ brand.id }}">{{ brand.brand }}</option>
+            } }
+          </select>
+          @if(form.get('brand')?.hasError('pattern')) {
+          <div class="mt-10">
+            <div class="alert alert-danger">Choose brand</div>
+          </div>
+          }
+        </div>
+        <div class="form-group">
+          <label for="productPrice">Product Price</label>
+          <input
+            type="number"
+            class="form-control"
+            id="productPrice"
+            formControlName="price"
+          />
+          @if(form.get('price')?.hasError('required')){
+          <div class="alert alert-danger mt-10">Price is required</div>
+          } @if(form.get('price')?.hasError('pattern')){
+          <div class="alert alert-danger mt-10">
+            Price must contains only numbers
+          </div>
+          }
+        </div>
+
+        <button type="submit" class="btn btn-primary" (click)="update()">
+          Edit Product
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-edit-product-specifications
+  (addSpecificationEmmit)="onAddedSpecification()"
+  [product]="product"
+></app-edit-product-specifications>

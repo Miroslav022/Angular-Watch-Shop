@@ -2,12 +2,13 @@
 <section class="confirmation_part section_padding">
   <div class="container">
     <div class="row">
-      <div class="col-lg-12">
+      <div class="col-lg-12 d-flex justify-content-center flex-column">
         <div class="alert alert-success text-center" role="alert">
           Thank you. Your order has been received.
         </div>
+        <button class="btn" routerLink="/myOrders">Go to see all orders</button>
       </div>
-      <div class="col-lg-6 col-lx-4">
+      <!-- <div class="col-lg-6 col-lx-4">
         <div class="single_confirmation_details">
           <h4>order info</h4>
           <ul>
@@ -32,12 +33,12 @@
       </div>
       <div class="col-lg-6 col-lx-4">
         <app-shipping-address></app-shipping-address>
-      </div>
+      </div> -->
     </div>
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-lg-12">
         <app-order-details></app-order-details>
       </div>
-    </div>
+    </div> -->
   </div>
 </section>

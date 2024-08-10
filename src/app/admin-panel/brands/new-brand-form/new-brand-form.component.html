@@ -1,0 +1,33 @@
+@if(isFailed){
+<app-notification-component
+  message="Something is wrong try again, maybe this name is already in the database, or session has expired"
+  notificationClass="notificationFailed"
+></app-notification-component>
+}
+<div class="card mb-4">
+  <div class="card-header">
+    <h5 class="card-title">Add New Brand</h5>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="form">
+      <div class="form-group">
+        <label for="brandName">Brand Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="brandName"
+          required
+          [formControl]="form.get('Name')"
+        />
+        @if(form.get('Name').hasError('required')) {
+        <div class="mt-10">
+          <div class="alert alert-danger">Name is required</div>
+        </div>
+        }
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="AddNewItem()">
+        Add Brand
+      </button>
+    </form>
+  </div>
+</div>

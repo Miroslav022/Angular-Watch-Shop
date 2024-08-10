@@ -1,11 +1,24 @@
 <div>
   <div class="single-popular-items mb-50 text-center">
     <div class="popular-img">
-      <img src="{{ Product.Image.src }}" [alt]="Product.Image.alt" />
+      <!-- <img
+        src="https://localhost:7174/products/{{ image }}"
+        [alt]="Product.name"
+      /> -->
+      @for (image of Product.images; track $index) {
+      <img
+        src="https://localhost:7174/products/{{ image.path }}"
+        [alt]="Product.name"
+      />
+      }
       <div class="img-cap">
+        @if(isLoggedIn){
         <span data-id="{{ Product.id }}" (click)="addToCart($event)"
           >Add to cart</span
         >
+        } @else {
+        <span>Log in to add to cart</span>
+        }
       </div>
       <!-- <div class="favorit-items">
         <span class="flaticon-heart"></span>
@@ -13,15 +26,10 @@
     </div>
     <div class="popular-caption">
       <h3>
-        <a>{{ Product.Name }}</a>
+        <a>{{ Product.name }}</a>
       </h3>
       <div class="row justify-content-center">
-        @if(Product.Price.oldPrice) {
-        <span class="mr-2"
-          ><del>$ {{ Product.Price.oldPrice }}</del></span
-        >
-        }
-        <span>$ {{ Product.Price.newPrice }}</span>
+        <span>$ {{ Product.price }}</span>
       </div>
       <span (click)="navigateToProduct(Product.id)" class="seeDetailsBtn"
         >See details</span

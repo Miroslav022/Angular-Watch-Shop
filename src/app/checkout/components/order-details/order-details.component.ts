@@ -26,7 +26,7 @@ export class OrderDetailsComponent implements OnInit {
 
   totalPriceCalculate(): void {
     this.totalPrice = this.orderedProducts.reduce((acc, cur) => {
-      return (acc = acc + cur.product.Price.newPrice * cur.qty);
+      return (acc = acc + Number(0) * cur.quantity);
     }, 0);
   }
 }

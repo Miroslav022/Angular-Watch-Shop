@@ -1,6 +1,6 @@
 <h3>Filter by categories</h3>
 <div class="row">
-  @for (category of categories; track $index) {
+  @if (categories) { @for (category of categories.data; track $index) {
   <div class="cb ml-3">
     <app-checkbox
       [label]="category.category"
@@ -8,5 +8,7 @@
       (filterChange)="onCategoryChange($event)"
     ></app-checkbox>
   </div>
+  } } @else {
+  <p>loading...</p>
   }
 </div>

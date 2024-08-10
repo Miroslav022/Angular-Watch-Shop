@@ -3,6 +3,8 @@ import { CartService } from '../../../services/cart.service';
 import { IProductInCart } from '../../../cart/interfaces/i-product-in-cart';
 import { IProduct } from '../../../shop/interfaces/iproduct';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-watch',
@@ -12,30 +14,28 @@ import { Router } from '@angular/router';
 export class WatchComponent implements OnInit {
   @Input() Product: IProduct;
   @Output() atcMessage = new EventEmitter<void>();
-
+  isLoggedIn: boolean = false;
   cart: IProductInCart[] = [];
+  image: string = '';
 
-  constructor(private cartService: CartService, private router: Router) {}
+  constructor(
+    private cartService: CartService,
+    private router: Router,
+    private _http: HttpClient,
+    private authService: AuthService
+  ) {}
   ngOnInit(): void {
-    this.cartService.cart.subscribe((x) => {
-      this.cart = x;
-    });
+    this.isLoggedIn = this.authService.isLoggedIn();
+    if (this.Product.images.length > 0) {
+      this.image = this.Product.images[0].path;
+      console.log(this.image);
+    }
   }
 
   addToCart(event: Event): void {
     event.preventDefault();
     this.atcMessage.emit();
-    const alreadyExistInCart = this.cart.find(
-      (x) => x.product.id === this.Product.id
-    );
-    if (alreadyExistInCart) {
-      let id_product = this.cart.findIndex(
-        (x) => x.product.id === this.Product.id
-      );
-      let productQty = this.cart[id_product].qty;
-      productQty = Number(productQty) + 1;
-      this.cart[id_product].qty = productQty;
-    } else this.cart.push({ product: this.Product, qty: 1 });
+    this.cartService.setCart({ priceId: this.Product.priceId, quantity: 1 });
   }
 
   navigateToProduct(id: number): void {

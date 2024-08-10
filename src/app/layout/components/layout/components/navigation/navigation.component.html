@@ -1,4 +1,30 @@
 <!-- Preloader Start -->
+@if(isAdmin && isLoggedIn){
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <a class="navbar-brand text-white" routerLink="adminpanel">Admin Panel</a>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/adminpanel/brands"
+          >Brands</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/adminpanel/categories"
+          >Categories</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/adminpanel/products"
+          >Products</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
+
+}
 <header>
   <!-- Header Start -->
   <div class="header-area">
@@ -19,17 +45,39 @@
                 <li><a routerLink="shop">shop</a></li>
                 <li><a routerLink="about">about</a></li>
                 <li><a routerLink="contact">Contact</a></li>
+                @if(isLoggedIn){
+                <li><a routerLink="myOrders">My orders</a></li>
+                }
               </ul>
             </nav>
           </div>
           <!-- Header Right -->
           <div class="header-right">
-            <ul>
+            <ul class="d-flex align-items-center">
               <li>
                 <a routerLink="cart"
                   ><span class="flaticon-shopping-cart"></span
                 ></a>
               </li>
+              @if (!isLoggedIn) {
+              <li>
+                <a routerLink="auth"><span class="flaticon-user"></span></a>
+              </li>
+              } @if(isLoggedIn){
+              <li class="d-flex align-items-center mr-2">
+                <div class="circle mr-2">
+                  <img
+                    class="img-fluid"
+                    src="../../../../../../assets/img/blog/author.png"
+                    alt=""
+                  />
+                </div>
+                @if (username) { Hello {{ username }} ! }
+              </li>
+              <li>
+                <a (click)="logout()" class="text-black">Logout</a>
+              </li>
+              }
             </ul>
           </div>
         </div>

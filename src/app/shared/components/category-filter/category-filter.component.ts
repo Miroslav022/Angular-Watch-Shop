@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoriesApiService } from '../../../shop/business-logic/api/categories-api.service';
-import { ICategory } from '../../../shop/interfaces/icategory';
+import {
+  ICategory,
+  ICategoryPagination,
+} from '../../../shop/interfaces/icategory';
 import { FilteringService } from '../../../shop/business-logic/filtering/filtering.service';
 
 @Component({
@@ -10,7 +13,7 @@ import { FilteringService } from '../../../shop/business-logic/filtering/filteri
 })
 export class CategoryFilterComponent implements OnInit {
   selectedCategories: number[] = [];
-  categories: ICategory[] = [];
+  categories: ICategoryPagination;
   constructor(
     private categoryService: CategoriesApiService,
     private filteringService: FilteringService
@@ -23,7 +26,6 @@ export class CategoryFilterComponent implements OnInit {
   }
 
   onCategoryChange(event: { id: number; checked: boolean }): void {
-    // console.log(event.checked);
     if (event.checked) {
       this.selectedCategories.push(event.id);
     } else {
@@ -37,7 +39,13 @@ export class CategoryFilterComponent implements OnInit {
   getCategories(): void {
     this.categoryService.getCategories().subscribe({
       next: (data) => {
-        this.categories = data;
+        this.categories = {
+          pages: data.pages,
+          data: data?.data,
+          currentPage: data.currentPage,
+          totalCount: data.totalCount,
+          perPage: data.perPage,
+        };
       },
       error: (err) => {
         console.log(err);

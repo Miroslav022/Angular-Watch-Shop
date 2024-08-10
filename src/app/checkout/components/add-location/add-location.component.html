@@ -1,0 +1,72 @@
+@if(isLocationAdded){
+<app-notification-component
+  message="Location successfully added"
+></app-notification-component>
+} @if(isLocationFailed){
+<app-notification-component
+  notificationClass="notificationFailed"
+  message="Location failed"
+></app-notification-component>
+}
+<form class="row contact_form" [formGroup]="form">
+  <div class="col-md-12 form-group p_star">
+    <label for="country">Country:</label>
+    <select
+      class="form-control"
+      id="country"
+      name="country"
+      [formControl]="form.get('country')"
+    >
+      <option value="0">Select country</option>
+      @for (country of Countries; track $index) {
+      <option [value]="country.id">{{ country.name }}</option>
+      }
+    </select>
+    @if(form.get('country').hasError('pattern')) {
+    <div class="mt-10">
+      <div class="alert alert-danger">Choose country</div>
+    </div>
+    }
+  </div>
+
+  <!-- City -->
+  <div class="col-md-12 form-group p_star">
+    <label for="cityId">City:</label>
+    <select
+      [disabled]="isCityDisabled"
+      class="form-control"
+      id="cityId"
+      name="cityId"
+      [formControl]="form.get('city')"
+    >
+      <option value="0">Select city</option>
+      @for (city of FilteredCity; track $index) {
+      <option [value]="city.id">{{ city.city }}</option>
+      }
+    </select>
+    @if(form.get('city').hasError('pattern')) {
+    <div class="mt-10">
+      <div class="alert alert-danger">Choose city</div>
+    </div>
+    }
+  </div>
+  <div class="col-md-12 form-group p_star">
+    <label for="address">Address:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="address"
+      placeholder="Enter address"
+      name="address"
+      [formControl]="form.get('address')"
+    />
+    @if(form.get('address').hasError('required')) {
+    <div class="mt-10">
+      <div class="alert alert-danger">Address is required</div>
+    </div>
+    }
+  </div>
+  <div class="col-md-12 d-flex justify-content-end">
+    <button class="btn" (click)="addLocation()">Add location</button>
+  </div>
+</form>

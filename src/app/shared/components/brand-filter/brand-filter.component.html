@@ -1,6 +1,6 @@
 <h3>Filter by brands:</h3>
 <div class="row">
-  @for (brand of brands; track $index) {
+  @if(brands){ @for (brand of brands.data; track $index) {
   <div class="cb ml-3">
     <app-checkbox
       [label]="brand.brand"
@@ -8,5 +8,7 @@
       (filterChange)="onBrandChange($event)"
     ></app-checkbox>
   </div>
+  } } @else {
+  <p>Loading...</p>
   }
 </div>

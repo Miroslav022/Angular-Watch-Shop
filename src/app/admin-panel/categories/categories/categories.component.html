@@ -1,0 +1,47 @@
+<div class="container mt-5">
+  <h2 class="mb-4">Category Management</h2>
+  <button
+    type="button"
+    class="btn btn-primary mb-3"
+    data-toggle="modal"
+    data-target="#addBrandModal"
+    (click)="DisplayAddNewItemForm()"
+  >
+    Add New Category
+  </button>
+  @if(isVisible){
+  <app-new-category-form
+    (categoryAdded)="onCategoryAdded($event)"
+  ></app-new-category-form>
+  } @if(categories){
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody id="brandTableBody">
+      @for (category of categories.data ; track $index) {
+      <tr>
+        <td>{{ $index + 1 }}</td>
+        <td>{{ category.category }}</td>
+        <td><button routerLink="edit/{{category.id}}" class="btn pt-20 pb-20 pr-20 pl-20">Edit</button></td>
+        <td>
+          <button
+            class="btn pt-20 pb-20 pr-20 pl-20"
+            (click)="deleteCategory(category.id)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  } @else {
+  <div class="alert alert-danger">There is no categories</div>
+  }
+</div>

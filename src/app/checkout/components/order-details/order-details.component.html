@@ -12,11 +12,11 @@
       @for (Product of orderedProducts; track $index) {
       <tr>
         <th colspan="2">
-          <span>{{ Product.product.Name }}</span>
+          <!-- <span>{{ Product.product.name }}</span> -->
         </th>
-        <th>x{{ Product.qty }}</th>
+        <th>x{{ Product.quantity }}</th>
         <th>
-          <span>${{ Product.product.Price.newPrice }}</span>
+          <!-- <span>${{ Product.product.price }}</span> -->
         </th>
       </tr>
       }

@@ -27,9 +27,9 @@ export class PopularItemsComponent implements OnInit {
   getAllWatches(): void {
     this.productService.getAll().subscribe({
       next: (data) => {
-        this.products = data
+        this.products = data.data
           .sort((a, b) => {
-            return b.Popularity - a.Popularity;
+            return Number(b.price) - Number(a.price);
           })
           .slice(0, 6);
       },

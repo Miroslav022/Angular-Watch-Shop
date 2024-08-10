@@ -1,0 +1,52 @@
+<div class="container mt-5">
+  <h2 class="mb-4">Brand Management</h2>
+  <button
+    type="button"
+    class="btn btn-primary mb-3"
+    data-toggle="modal"
+    data-target="#addBrandModal"
+    (click)="DisplayAddNewItemForm()"
+  >
+    Add New Brand
+  </button>
+  @if(isVisible){
+  <app-new-brand-form (brandAdded)="onBrandAdded($event)"></app-new-brand-form>
+  } @if(brands){
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody id="brandTableBody">
+      @for (brand of brands.data ; track $index) {
+      <tr>
+        <td>{{ $index + 1 }}</td>
+        <td>{{ brand.brand }}</td>
+        <td>
+          <button
+            routerLink="edit/{{ brand.id }}"
+            class="btn pt-20 pb-20 pr-20 pl-20"
+          >
+            Edit
+          </button>
+        </td>
+        <td>
+          <button
+            class="btn pt-20 pb-20 pr-20 pl-20"
+            (click)="deleteBrand(brand.id)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  } @else {
+  <div class="alert alert-danger">There is no brands</div>
+  }
+</div>

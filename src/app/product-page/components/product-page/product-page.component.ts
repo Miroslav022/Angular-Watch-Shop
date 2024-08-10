@@ -6,6 +6,8 @@ import { CategoriesApiService } from '../../../shop/business-logic/api/categorie
 import { BrandsApiService } from '../../../shop/business-logic/api/brands-api.service';
 import { CartService } from '../../../services/cart.service';
 import { IProductInCart } from '../../../cart/interfaces/i-product-in-cart';
+import { RecensionsService } from '../../business-logic/Api/recensions.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-product-page',
@@ -13,16 +15,18 @@ import { IProductInCart } from '../../../cart/interfaces/i-product-in-cart';
   styleUrl: './product-page.component.css',
 })
 export class ProductPageComponent implements OnInit {
-  product: IProduct | undefined;
+  product: IProduct | null = null;
   category: string = '';
   brand: string = '';
   cart: IProductInCart[] = [];
-
+  username: string = '';
+  isLoggedIn: boolean = false;
+  image: string = '';
   constructor(
+    private authService: AuthService,
     private route: ActivatedRoute,
     private productsApiService: ProductsApiService,
-    private categoryApiService: CategoriesApiService,
-    private brandApiService: BrandsApiService,
+    private _recensionService: RecensionsService,
     private cartService: CartService
   ) {}
 
@@ -35,61 +39,31 @@ export class ProductPageComponent implements OnInit {
     }, 3000);
   }
 
-  ngOnInit(): void {
+  loadProduct() {
     const productId = Number(this.route.snapshot.paramMap.get('id') || 0);
     this.productsApiService.getProductById(productId).subscribe(
-      (product) => {
+      (product: any) => {
         this.product = product;
-        // Fetch category only when product data is available
-        if (product) {
-          this.categoryApiService.getCategoryById(product.IdCategory).subscribe(
-            (category) => {
-              if (category) {
-                this.category = category.category; // Assuming category has a 'name' property
-              } else {
-                console.error(
-                  `Category not found for product with ID ${productId}`
-                );
-              }
-            },
-            (error) => console.error('Error fetching category details:', error)
-          );
-          this.brandApiService.getBrandById(product.IdBrand).subscribe(
-            (brand) => {
-              if (brand) {
-                this.brand = brand.brand; // Assuming category has a 'name' property
-              } else {
-                console.error(
-                  `Category not found for product with ID ${productId}`
-                );
-              }
-            },
-            (error) => console.error('Error fetching category details:', error)
-          );
+        if (this.product && this.product.images.length > 0) {
+          this.image = this.product.images[0].path;
         }
       },
       (error) => console.error('Error fetching product details:', error)
     );
-    this.cartService.cart.subscribe((x) => {
-      this.cart = x;
-    });
+  }
+
+  ngOnInit(): void {
+    const tokenData = this.authService.getJwtTokenData();
+    this.username = tokenData?.Username;
+    this.loadProduct();
+    this.isLoggedIn = this.authService.isLoggedIn();
   }
 
   addToCart(event: Event): void {
     event.preventDefault();
     this.showNotification();
     if (this.product) {
-      const alreadyExistInCart = this.cart.find(
-        (x) => x.product.id === this.product?.id
-      );
-      if (alreadyExistInCart) {
-        let id_product = this.cart.findIndex(
-          (x) => x.product.id === this.product?.id
-        );
-        let productQty = this.cart[id_product].qty;
-        productQty = Number(productQty) + 1;
-        this.cart[id_product].qty = productQty;
-      } else this.cart.push({ product: this.product, qty: 1 });
+      this.cartService.setCart({ priceId: this.product?.priceId, quantity: 1 });
     }
   }
 }

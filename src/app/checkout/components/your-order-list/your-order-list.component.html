@@ -7,14 +7,12 @@
         <span>Total</span>
       </p>
     </li>
-    @for (product of cart; track $index) {
+    @for (product of cart.products; track $index) {
     <li>
       <p>
-        {{ product.product.Name }}
-        <span class="middle">x {{ product.qty }}</span>
-        <span class="last"
-          >${{ product.product.Price.newPrice * product.qty }}</span
-        >
+        {{ product.name }}
+        <span class="middle">x {{ product.quantity }}</span>
+        <span class="last">${{ product.price * product.quantity }}</span>
       </p>
     </li>
     }

@@ -7,10 +7,11 @@ import { LayoutModule } from './layout/layout.module';
 import { AboutUsModule } from './about-us/about-us.module';
 import { ContactModule } from './contact/contact.module';
 import { SharedModule } from './shared/shared.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CartModule } from './cart/cart.module';
 import { ProductPageModule } from './product-page/product-page.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthInterceptor } from './auth.interceptor';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -25,7 +26,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProductPageModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

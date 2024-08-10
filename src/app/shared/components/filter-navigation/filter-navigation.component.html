@@ -6,10 +6,8 @@
     <nav>
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
         <app-filter-button
-          filterOption="Newest Arrivals"
-          activeClass="{{
-            selectedSortOption === 'newest arrivals' ? 'active' : ''
-          }}"
+          filterOption="A-Z asc"
+          activeClass="{{ selectedSortOption === 'A-Z Asc' ? 'active' : '' }}"
         ></app-filter-button>
         <app-filter-button
           filterOption="Price high to low"
@@ -18,9 +16,9 @@
           }}"
         ></app-filter-button>
         <app-filter-button
-          filterOption="Most popular"
+          filterOption="Price low to high"
           activeClass="{{
-            selectedSortOption === 'most popular' ? 'active' : ''
+            selectedSortOption === 'Price low to high' ? 'active' : ''
           }}"
         ></app-filter-button>
       </div>

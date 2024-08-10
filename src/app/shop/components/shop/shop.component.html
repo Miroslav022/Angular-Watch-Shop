@@ -31,9 +31,33 @@
           <div class="col-12 text-center alert alert-secondary">Loading...</div>
           }
         </div>
+
+        <nav aria-label="Page navigation ">
+          <ul class="pagination d-flex justify-content-end">
+            <li class="page-item">
+              <a
+                class="page-link btn"
+                href="#"
+                aria-label="Previous"
+                (click)="pagination(products.currentPage, $event, 'previous')"
+              >
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+
+            <li class="page-item ml-10">
+              <a
+                class="page-link btn"
+                href="#"
+                aria-label="Next"
+                (click)="pagination(products.currentPage, $event, 'next')"
+              >
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
-      <!-- Card two -->
     </div>
-    <!-- End Nav Card -->
   </div>
 </section>

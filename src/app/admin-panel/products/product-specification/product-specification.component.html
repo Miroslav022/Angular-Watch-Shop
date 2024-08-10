@@ -1,0 +1,14 @@
+@for (specification of product?.productSpecifications; track $index) {
+<div class="row align-items-center mt-20">
+  <div class="col-6">
+    <h5>Specification: {{ specification.specification }}</h5>
+    <h5>Value: {{ specification.value }}</h5>
+  </div>
+  <div class="col-6 d-flex justify-content-end">
+    <button class="btn" (click)="delete(specification.specificationId)">
+      Delete
+    </button>
+  </div>
+</div>
+
+}

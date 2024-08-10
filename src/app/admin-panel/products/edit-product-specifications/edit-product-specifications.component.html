@@ -1,0 +1,66 @@
+@if(isSuccess){
+<app-notification-component message="Edited successfully">
+</app-notification-component>
+} @if(isFailed){
+<app-notification-component
+  message="Something went wrong, maybe this name already exists"
+  notificationClass="notificationFailed"
+>
+</app-notification-component>
+}
+
+<div class="container mt-20">
+  <div class="card">
+    <div class="card-header">
+      <h5>Add specifications</h5>
+    </div>
+    <div class="card-body">
+      <form id="addProductForm" [formGroup]="form">
+        <div class="form-group">
+          <label for="brandId">Specifications</label>
+          <select
+            class="form-control"
+            [formControl]="form.get('specification')"
+          >
+            <option value="0">Choose specification</option>
+            @if(specifications){ @for (specification of specifications.data;
+            track $index) {
+            <option value="{{ specification.id }}">
+              {{ specification.name }}
+            </option>
+            } }
+          </select>
+          @if(form.get('specification').hasError('pattern')) {
+          <div class="mt-10">
+            <div class="alert alert-danger">Choose specification</div>
+          </div>
+          }
+          <label for="productName">Type specification value</label>
+          <input
+            type="text"
+            class="form-control"
+            id="productName"
+            [formControl]="form.get('value')"
+          />
+          @if(form.get('value').hasError('required')) {
+          <div class="mt-10">
+            <div class="alert alert-danger">Value is required</div>
+          </div>
+          }
+        </div>
+        <div class="d-flex justify-content-end">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            (click)="addSpecification()"
+          >
+            Add Product Specifications
+          </button>
+        </div>
+      </form>
+      <app-product-specification
+        [product]="product"
+      ></app-product-specification>
+    </div>
+  </div>
+</div>

@@ -3,187 +3,22 @@
   <div class="container">
     <div class="billing_details">
       <div class="row">
-        <div class="col-lg-8">
-          <h3>Billing Details</h3>
-          <form class="row contact_form" [formGroup]="form">
-            <div class="col-md-6 form-group p_star">
-              <input
-                type="text"
-                class="form-control"
-                id="first"
-                name="firstname"
-                [formControl]="form.get('firstName')"
-                placeholder="First name*"
-              />
-              @if(form.get('firstName').hasError('required')) {
-              <div class="mt-10">
-                <div class="alert alert-danger">First name is required</div>
-              </div>
-              } @if(form.get('firstName').hasError('minlength')) {
-              <div class="mt-10">
-                <div class="alert alert-danger">
-                  First name must be at least 3 characters long
-                </div>
-              </div>
-              }
-            </div>
-            <div class="col-md-6 form-group p_star">
-              <input
-                type="text"
-                class="form-control"
-                id="last"
-                name="lastname"
-                placeholder="Last name*"
-                [formControl]="form.get('lastName')"
-              />
-              @if(form.get('lastName').hasError('required')) {
-              <div class="mt-10">
-                <div class="alert alert-danger">Last name is required</div>
-              </div>
-              } @if(form.get('lastName').hasError('minlength')) {
-              <div class="mt-10">
-                <div class="alert alert-danger">
-                  Last name must be at least 3 characters long
-                </div>
-              </div>
-              }
-            </div>
-
-            <div class="col-md-12 form-group">
-              <input
-                type="text"
-                class="form-control"
-                id="company"
-                name="company"
-                placeholder="Company name"
-                [formControl]="form.get('company')"
-              />
-            </div>
-            <div class="col-md-6 form-group p_star">
-              <input
-                type="text"
-                class="form-control"
-                id="number"
-                name="number"
-                placeholder="Phone number"
-                [formControl]="form.get('phoneNumber')"
-              />
-              @if(form.get('phoneNumber').hasError('required')) {
-              <div class="mt-10">
-                <div class="alert alert-danger">Phone is required</div>
-              </div>
-              } @if(form.get('phoneNumber').hasError('pattern')) {
-              <div class="mt-10">
-                <div class="alert alert-danger">Wrong format</div>
-              </div>
-              }
-            </div>
-            <div class="col-md-6 form-group p_star">
-              <input
-                type="text"
-                class="form-control"
-                id="email"
-                name="compemailany"
-                [formControl]="form.get('email')"
-                placeholder="emails"
-              />
-              @if(form.get('email').hasError('required')) {
-              <div class="mt-10">
-                <div class="alert alert-danger">Email is required</div>
-              </div>
-              } @if(form.get('email').hasError('email')) {
-              <div class="mt-10">
-                <div class="alert alert-danger">Wrong format</div>
-              </div>
-              }
-            </div>
-            <div class="col-md-12 p_star form-group">
-              <select
-                class="form-control"
-                id="exampleFormControlSelect1"
-                [formControl]="form.get('country')"
-              >
-                <option value="0">Country</option>
-                <option value="Serbia">Serbia</option>
-                <option value="Germany">Germany</option>
-                <option value="Croatia">Croatia</option>
-                <option value="Austria">Austria</option>
-              </select>
-              @if(form.get('country').hasError('pattern')) {
-              <div class="mt-10">
-                <div class="alert alert-danger">Choose country</div>
-              </div>
-              }
-            </div>
-            <div class="col-md-12 form-group p_star">
-              <input
-                type="text"
-                class="form-control"
-                id="add1"
-                name="add1"
-                [formControl]="form.get('address')"
-                placeholder="Address"
-              />
-              @if(form.get('address').hasError('required')) {
-              <div class="mt-10">
-                <div class="alert alert-danger">Address is required</div>
-              </div>
-              }
-            </div>
-
-            <div class="col-md-12 form-group p_star">
-              <input
-                type="text"
-                class="form-control"
-                id="city"
-                name="city"
-                placeholder="City"
-                [formControl]="form.get('city')"
-              />
-              @if(form.get('city').hasError('required')) {
-              <div class="mt-10">
-                <div class="alert alert-danger">City is required</div>
-              </div>
-              }
-            </div>
-            <div class="col-md-12 form-group">
-              <input
-                type="text"
-                class="form-control"
-                id="zip"
-                name="zip"
-                placeholder="Postcode/ZIP"
-                [formControl]="form.get('zip')"
-              />
-              @if(form.get('zip').hasError('required')) {
-              <div class="mt-10">
-                <div class="alert alert-danger">ZIP is required</div>
-              </div>
-              }
-            </div>
-            <div class="col-md-12 form-group">
-              <textarea
-                class="form-control"
-                name="message"
-                id="message"
-                rows="1"
-                placeholder="Order Notes"
-              ></textarea>
-            </div>
-            <div class="col-md-12 form-group d-flex justify-content-end">
-              <button
-                class="btn"
-                (click)="checkout()"
-                [disabled]="form.invalid"
-                routerLink="confirmation"
-              >
-                Checkout
-              </button>
-            </div>
-          </form>
+        <div class="col-lg-12">
+          <div class="d-flex justify-content-between align-items-center mb-20">
+            <h3 class="mx-0 my-0">Billing Details</h3>
+            <button class="btn" (click)="displayLocationForm()">
+              Add new location
+            </button>
+          </div>
+          @if(displayForm){
+          <app-add-location></app-add-location>
+          }
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-12">
           <app-your-order-list></app-your-order-list>
+          <div class="d-flex justify-content-end">
+            <button class="btn" (click)="order()">order</button>
+          </div>
         </div>
       </div>
     </div>

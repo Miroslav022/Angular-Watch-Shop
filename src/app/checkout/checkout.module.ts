@@ -9,6 +9,7 @@ import { ConfirmationComponent } from './components/confirmation/confirmation.co
 import { OrderDetailsComponent } from './components/order-details/order-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShippingAddressComponent } from './components/shipping-address/shipping-address.component';
+import { AddLocationComponent } from './components/add-location/add-location.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ShippingAddressComponent } from './components/shipping-address/shipping
     ConfirmationComponent,
     OrderDetailsComponent,
     ShippingAddressComponent,
+    AddLocationComponent,
   ],
   imports: [
     CommonModule,

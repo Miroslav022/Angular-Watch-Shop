@@ -1,0 +1,39 @@
+@if(isSuccess){
+<app-notification-component message="Edited successfully">
+</app-notification-component>
+} @if(isFailed){
+<app-notification-component
+  message="Something went wrong, maybe this name already exists"
+  notificationClass="notificationFailed"
+>
+</app-notification-component>
+}
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h5>Edit Brand</h5>
+    </div>
+    <div class="card-body">
+      <form id="editBrandForm" [formGroup]="form">
+        <input type="hidden" id="editBrandId" />
+        <div class="form-group">
+          <label for="editBrandName">Brand Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="editBrandName"
+            formControlName="Name"
+          />
+          @if(form.get('Name')?.hasError('required')) {
+          <div class="mt-10">
+            <div class="alert alert-danger">Name is required</div>
+          </div>
+          }
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="update()">
+          Update Brand
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
